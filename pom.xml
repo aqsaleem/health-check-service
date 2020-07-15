@@ -92,6 +92,11 @@
 	</build>
 
   <distributionManagement>
+		<repository>
+			<id>internal-releases</id>
+			<name>Internal Releases</name>
+			<url>http://build1.vroozi.net/nexus/content/repositories/releases</url>
+		</repository>
     <snapshotRepository>
       <id>internal-snapshots</id>
       <name>Internal Snapshots</name>
