@@ -90,6 +90,20 @@
 		</plugins>
 	</build>
 
+  <distributionManagement>
+    <!-- Defines where to deploy artifacts to -->
+    <repository>
+      <id>internal-releases</id>
+      <name>Internal Releases</name>
+      <url>http://build1.vroozi.net/nexus/content/repositories/releases</url>
+    </repository>
+
+    <snapshotRepository>
+      <id>internal-snapshots</id>
+      <name>Internal Snapshots</name>
+      <url>http://build1.vroozi.net/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
   <scm>
     <connection>scm:git:git@github.com:aqsaleem/health-check-service.git</connection>
     <developerConnection>scm:git:git@github.com:aqsaleem/health-check-service.git</developerConnection>
