@@ -90,4 +90,10 @@
 		</plugins>
 	</build>
 
+  <scm>
+    <connection>scm:git:git@github.com:aqsaleem/health-check-service.git</connection>
+    <developerConnection>scm:git:git@github.com:aqsaleem/health-check-service.git</developerConnection>
+    <url>scm:git:git@github.com:aqsaleem/health-check-service.git</url>
+  </scm>
+
 </project>
