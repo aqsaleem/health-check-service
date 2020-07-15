@@ -8,16 +8,16 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HealthCheck {
 
-  private boolean health;
+  private boolean healthy;
   private List<Health> dataSources = new ArrayList<>();
   private List<Health> services = new ArrayList<>();
 
-  public boolean isHealth() {
-    return health;
+  public boolean isHealthy() {
+    return healthy;
   }
 
-  public void setHealth(boolean health) {
-    this.health = health;
+  public void setHealthy(boolean healthy) {
+    this.healthy = healthy;
   }
 
   public List<Health> getDataSources() {

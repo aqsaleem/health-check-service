@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<groupId>com.vroozi</groupId>
-	<artifactId>health-check-service</artifactId>
+	<artifactId>healthy-check-service</artifactId>
 	<version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <modelVersion>4.0.0</modelVersion>
@@ -108,9 +108,9 @@
     </snapshotRepository>
   </distributionManagement>
   <scm>
-    <connection>scm:git:git@github.com:aqsaleem/health-check-service.git</connection>
-    <developerConnection>scm:git:git@github.com:aqsaleem/health-check-service.git</developerConnection>
-    <url>scm:git:git@github.com:aqsaleem/health-check-service.git</url>
+    <connection>scm:git:git@github.com:aqsaleem/healthy-check-service.git</connection>
+    <developerConnection>scm:git:git@github.com:aqsaleem/healthy-check-service.git</developerConnection>
+    <url>scm:git:git@github.com:aqsaleem/healthy-check-service.git</url>
   </scm>
 
 </project>

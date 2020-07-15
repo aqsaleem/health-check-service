@@ -2,7 +2,6 @@ package com.vroozi.health.services;
 
 import com.vroozi.health.model.Health;
 import com.vroozi.health.model.HealthCheck;
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +32,7 @@ public class HealthIndicatorImpl implements HealthIndicator {
     }
     List<Health> healthList = ListUtils
         .union(healthCheck.getDataSources(), healthCheck.getServices());
-    healthCheck.setHealth(healthList.stream()
+    healthCheck.setHealthy(healthList.stream()
         .allMatch(health -> StringUtils.equals(AVAILABLE.name(), health.getStatus().name())));
     return healthCheck;
   }
