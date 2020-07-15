@@ -5,7 +5,7 @@ import com.vroozi.health.model.HealthCheck;
 
 import java.util.List;
 
-public interface DataSourceHealthIndicator {
+public interface DataSourceHealthChecker {
 
   /**
    * checks Data Sources Health

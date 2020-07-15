@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.health.HealthIndicator;
 import org.springframework.boot.actuate.health.Status;
+import org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator;
 import org.springframework.boot.actuate.jms.JmsHealthIndicator;
 import org.springframework.boot.actuate.mongo.MongoHealthIndicator;
 import org.springframework.boot.actuate.neo4j.Neo4jHealthIndicator;
@@ -22,9 +23,9 @@ import static com.vroozi.health.model.AvailabilityStatus.AVAILABLE;
 import static com.vroozi.health.model.AvailabilityStatus.UNAVAILABLE;
 
 @Service
-public class DataSourceHealthIndicatorImpl implements DataSourceHealthIndicator {
+public class DataSourceHealthCheckerImpl implements DataSourceHealthChecker {
 
-  private static Logger LOGGER = LoggerFactory.getLogger(DataSourceHealthIndicatorImpl.class);
+  private static Logger LOGGER = LoggerFactory.getLogger(DataSourceHealthCheckerImpl.class);
 
   @Autowired
   ApplicationContext applicationContext;
@@ -40,7 +41,7 @@ public class DataSourceHealthIndicatorImpl implements DataSourceHealthIndicator 
       String hostAddress) {
     try {
       Status status = getHealthStatus(healthIndicator);
-      LOGGER.debug("Checking Health of data source {}, And Got Status {}", dataSource, status);
+      LOGGER.info("Checking Health of data source {}, And Got Status {}", dataSource, status);
       if (Status.UP == status) {
         return Health.builder()
             .source(dataSource).url(hostAddress).status(AVAILABLE)
@@ -67,8 +68,7 @@ public class DataSourceHealthIndicatorImpl implements DataSourceHealthIndicator 
       case SOLR:
         return applicationContext.getBean(SolrHealthIndicator.class);
       case MYSQL:
-        return applicationContext
-            .getBean(org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator.class);
+        return (HealthIndicator) applicationContext.getBean("dataSourceHealthIndicator");
       case MONGO:
         return applicationContext.getBean(MongoHealthIndicator.class);
       case NEO4J:

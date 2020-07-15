@@ -14,7 +14,7 @@ import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 public class HealthIndicatorImpl implements HealthIndicator {
 
   @Autowired
-  private DataSourceHealthIndicator dataSourceHealthIndicator;
+  private DataSourceHealthChecker dataSourceHealthChecker;
 
   @Autowired
   private ServiceHealthIndicator serviceHealthIndicator;
@@ -24,7 +24,7 @@ public class HealthIndicatorImpl implements HealthIndicator {
     HealthCheck healthCheck = new HealthCheck();
     // data source health check
     if (isNotEmpty(doCheckDataSourceHealth)) {
-      dataSourceHealthIndicator.dataSourceHealth(doCheckDataSourceHealth, healthCheck);
+      dataSourceHealthChecker.dataSourceHealth(doCheckDataSourceHealth, healthCheck);
     }
     // services health check
     if (isNotEmpty(doCheckServiceHealth)) {
